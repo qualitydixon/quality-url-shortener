@@ -2,10 +2,14 @@
   "name": "quality-url-shortener",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Mike Dixon <qualitydixon@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
