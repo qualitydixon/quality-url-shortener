@@ -1,5 +1,7 @@
 var express = require('express');
 var mongo = require('mongodb');
+var validator = require("validator");
+
 
 var app = express();
 
@@ -32,8 +34,12 @@ mongo.MongoClient.connect('mongodb://dbuser:dbuser@ds021989.mlab.com:21989/url-s
        var url = req.url.slice(5);
        var base_url = "https://quality-url-shortener.herokuapp.com/";
        var short_url = makeUrl();
-       res.send(JSON.stringify({"original_url" : url, "short_url": base_url + short_url})); 
-       saveDocument({"original_url" : url, "short_url": short_url}, db);
+       if (validator.isURL(url)) {
+        res.send(JSON.stringify({"original_url" : url, "short_url": base_url + short_url})); 
+        saveDocument({"original_url" : url, "short_url": short_url}, db);
+       } else {
+           res.send("Please enter a valid url.");
+       }
     });
     
     app.get('/:url', function(req, res) {
