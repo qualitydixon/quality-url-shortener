@@ -10,6 +10,10 @@
   "author": "Mike Dixon <qualitydixon@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4"
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "mongodb": "^2.1.7",
+    "routes": "^2.1.0",
+    "validator": "^5.1.0"
   }
 }
